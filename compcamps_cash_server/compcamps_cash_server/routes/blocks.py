@@ -5,9 +5,9 @@ from compcamps_cash_api.entities import Block, Transaction
 from compcamps_cash_server import app, db, utils, prefix
 from compcamps_cash_server.routes import transactions
 
-def getBlockchain(limit=0):
+def getBlockchain(limit=0, sortOrder=-1):
     blockchain = []
-    blocks = db.blocks.find()#.sort([('$natural', -1)]).limit(limit)
+    blocks = db.blocks.find().sort([('$natural', sortOrder)]).limit(limit)
     for block in blocks:
         b = Block(block['index'], block['transactions'], block['nonce'], block['previousHash'], utils.utcToRegina(block['_id'].generation_time))
         blockchain.append(b)
@@ -16,7 +16,7 @@ def getBlockchain(limit=0):
 @app.route('/api/blocks')
 def getBlocks():
     limit = request.args.get('limit') or 0
-    return jsonify(getBlockchain(int(limit)))
+    return jsonify(getBlockchain(int(limit), 1))
 
 @app.route("/api/blocks", methods=["POST"])
 def mineBlock():
