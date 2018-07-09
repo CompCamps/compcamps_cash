@@ -1,1 +1,1 @@
-web: gunicorn app:compcamps_cash_server
+web: gunicorn compcamps_cash_server:app
