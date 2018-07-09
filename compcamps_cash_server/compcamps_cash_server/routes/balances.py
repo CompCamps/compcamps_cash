@@ -45,5 +45,4 @@ def getAllBalances():
                 balances[transaction["sender"]] = 0 - transaction["amount"]
 
     del balances["MINER"]
-    del balances["123"] # test key
     return jsonify(balances)
