@@ -1,4 +1,5 @@
 import datetime as date
+import random
 
 from compcamps_cash_api.entities import Block, Transaction, Keys, Prefix
 from compcamps_cash_api.entities.block import nextBlock
@@ -36,7 +37,7 @@ def mine():
     block = nextBlock(previousBlock, transactions, nonce)
     beginTimestamp = date.datetime.now()
     while not block.validate(prefix):
-        nonce = nonce + 1
+        nonce = random.randint(1, 100000000000)
         block = nextBlock(previousBlock, transactions, nonce)
 
         # Check the server every 5 seconds incase someone else mined before us
