@@ -7,7 +7,7 @@ from compcamps_cash_server.routes import transactions
 
 def getBlockchain(limit=0):
     blockchain = []
-    blocks = db.blocks.find().sort([('$natural', -1)]).limit(limit)
+    blocks = db.blocks.find()#.sort([('$natural', -1)]).limit(limit)
     for block in blocks:
         b = Block(block['index'], block['transactions'], block['nonce'], block['previousHash'], utils.utcToRegina(block['_id'].generation_time))
         blockchain.append(b)

@@ -13,7 +13,8 @@ client = MongoClient(os.getenv("MONGO_URL"),
                       authMechanism='SCRAM-SHA-1')
 db = client.campcoin
 
-app = Flask(__name__)
+template_dir = os.path.abspath('./views')
+app = Flask(__name__, template_folder='views', static_url_path=template_dir)
 prefix = "0000"#"000000"
 
 import compcamps_cash_server.routes
