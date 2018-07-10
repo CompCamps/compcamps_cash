@@ -74,7 +74,7 @@ class Balance extends React.Component {
   }
   onBalanceImage(e) {
     if (this.state.publicKey.length === 0) return
-    window.location.href = 'https://campcoin.herokuapp.com/api/balance?image=true&public_key=' + encodeURIComponent(this.state.publicKey)
+    window.location.href = 'https://compcamps-cash.herokuapp.com/api/balance?image=true&public_key=' + encodeURIComponent(this.state.publicKey)
     e.preventDefault();
   }
 // Use the render function to return JSX component      
@@ -90,7 +90,7 @@ render() {
         </div>
         <div class="form-group">
         <button class="w-25 btn btn-info right" onClick={this.onSubmit.bind(this)}>Get Balance</button>
-        {/* <button class="w-25 btn btn-secondary right mr-2" onClick={this.onBalanceImage.bind(this)} type="submit">Generate Image</button> */}
+        <button class="w-25 btn btn-secondary right mr-2" onClick={this.onBalanceImage.bind(this)} type="submit">Generate Image</button>
         </div>
       </form>
       
