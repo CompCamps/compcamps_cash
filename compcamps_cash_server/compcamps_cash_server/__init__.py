@@ -17,5 +17,4 @@ template_dir = os.path.abspath('./views')
 app = Flask(__name__, template_folder='views', static_url_path=template_dir)
 prefix = "000000"
 
-
 import compcamps_cash_server.routes
