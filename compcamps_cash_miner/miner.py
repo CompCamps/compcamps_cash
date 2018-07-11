@@ -9,8 +9,8 @@ block = Block(0, data, nonce, 0)
 # TODO: Move this into the Block class
 hash = hashlib.sha256(data.encode('utf-8')).hexdigest()
 
-# TODO: Use a while loop here to change data and rehash until it starts with 0
-while not block.validate():
+# TODO: Change our loop to use our block's validate function
+while hash[0] != "0":
     nonce = nonce + 1
     block = Block(0, data, nonce, 0)
 

@@ -13,5 +13,5 @@ class Block:
         
         return # Move the hashing code to this function
     
-    def validate(self):
-        return self.hash[0] == "0"
+    def validate(self, prefix):
+        return self.hash[0] == prefix
