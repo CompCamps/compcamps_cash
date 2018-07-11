@@ -1,4 +1,4 @@
-from compcamp_cash_api.entities import Block
+from compcamps_cash_api.entities import Block
 from compcamps_cash_api import CompCampsCashApi
 
 ccapi = CompCampsCashApi("https://compcamps-cash.herokuapp.com")
@@ -11,7 +11,6 @@ previousBlock =
 # TODO: create the next block using the previousBlock values
 block = 
 
-# TODO: Change our loop to use our block's validate function
 while not block.validate("0"):
     nonce = nonce + 1
     block = # This line should match line 13
